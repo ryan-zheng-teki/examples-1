@@ -50,7 +50,7 @@ The code can of course run natively on your local machine, please [read the Jina
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
-## TLDR;
+## TL;DR: Just show me the Pokémon!
 
 > *I want Pokémon! I don't care about Jina cloud-native neural search or whatever big names you throw around, just show me the Pokémon!*
 
@@ -62,12 +62,16 @@ docker run -p 34567:34567 -e "JINA_PORT=34567" jinaai/hub.app.bitsearch-pokedex 
 
 Then you can `curl`/query/js it via HTTP POST request. [Details here](#query-via-rest-api).
 
+## Okay, Now Show Me How It's Done
 
-## Index Image Data
+The command above lets you search a pre-indexed Docker image. But what if we want to start more from scratch and run the indexing ourselves?
+
+### Download and Index Image Data
 
 We use BiT `R50x1` model in this example. You can change it in [`download.sh`](./download.sh) if you want
 
 ```bash
+sh ./download.sh
 docker run -v "$(pwd)/data:/data" -v "$(pwd)/workspace:/workspace" -e "JINA_LOG_PROFILING=1" -p 5000:5000 jinaai/hub.app.bitsearch index
 ```
 

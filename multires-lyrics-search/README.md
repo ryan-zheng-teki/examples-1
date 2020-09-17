@@ -21,6 +21,8 @@
 
 ## Download lyrics data
 
+Out of the box, this example uses data from the `toy-data` directory. But if you want to use a larger dataset, you can run:
+
 ```bash
 pip install kaggle
 mkdir data
