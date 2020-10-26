@@ -54,8 +54,7 @@ def query(top_k):
 
 
 def query_restful():
-    f = Flow().load_config("flow-query.yml")
-    f.use_rest_gateway()
+    f = Flow.load_config("flow-query.yml")
     with f:
         f.block()
 

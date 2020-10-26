@@ -1,6 +1,7 @@
 !Flow
 with:
   read_only: true
+  rest_api: true
   port_expose: $JINA_PORT
 pods:
   encoder:
