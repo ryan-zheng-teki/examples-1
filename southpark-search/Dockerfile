@@ -1,4 +1,4 @@
-FROM jinaai/jina
+FROM python:3.7.6-slim
 
 WORKDIR /
 
@@ -18,7 +18,5 @@ COPY . /
 RUN bash get_data.sh ./data && \
     python app.py -t index && \
     rm -rf data
-
-RUN pip install jina[http]
 
 ENTRYPOINT ["python", "app.py", "-t", "query_restful"]
