@@ -2,8 +2,13 @@ __copyright__ = "Copyright (c) 2020 Jina AI Limited. All rights reserved."
 __license__ = "Apache-2.0"
 
 import os
+from os.path import dirname,abspath
 import random
 import string
+import sys
+
+file_dir = os.path.dirname(__file__)
+sys.path.append(dirname(dirname(dirname(dirname(abspath(__file__))))))
 
 import click
 from jina.flow import Flow
@@ -82,12 +87,12 @@ def dryrun(num_docs):
 
 
 @click.command()
-@click.option('--task', '-t')
+@click.option('--task', '-t', default='index')
 @click.option('--num_docs', '-n', default=5)
 @click.option('--top_k', '-k', default=5)
 def main(task, num_docs, top_k):
-    os.environ['DATA_DIR'] = os.environ.get('DATA_DIR', 'tmp/jina/news/')
-    os.environ['DATA_FILE'] = os.environ.get('DATA_FILE', 'news_articles.csv')
+    os.environ['DATA_DIR'] = os.environ.get('DATA_DIR', '/tmp/jina/news/')
+    os.environ['DATA_FILE'] = os.environ.get('DATA_FILE', 'bbc_news.csv')
     os.environ['TMP_WORKSPACE'] = os.environ.get(
         'TMP_WORKSPACE', get_random_ws(os.environ['DATA_DIR']))
     if task == 'index':
