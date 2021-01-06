@@ -97,7 +97,7 @@ def main(task, num_docs, top_k):
         'TMP_WORKSPACE', get_random_ws(os.environ['DATA_DIR']))
 
     if task == 'index':
-        workspace = os.environ['WORKDIR']
+        workspace = os.environ['TMP_WORKSPACE']
         if os.path.exists(workspace):
             print(f'\n +---------------------------------------------------------------------------------+ \
                     \n |                                   🤖🤖🤖                                        | \
